@@ -2,6 +2,7 @@ package RegisterPage;
 
 import ExtentReportV5.ExtentTestManager;
 import com.aventstack.extentreports.Status;
+import commons.BasePage;
 import commons.BaseTest;
 import commons.GlobalConstants;
 import commons.PageGeneratorManager;
@@ -19,7 +20,7 @@ public class RegisterPage extends BaseTest {
 
     @Parameters({"environmentName", "browser"})
     @BeforeClass
-    public void beforeClass(@Optional("local") String environmentName, @Optional("firefox") String browserName) {
+    public void beforeClass(@Optional("local") String environmentName, @Optional("chrome") String browserName) {
         driver = getBrowserDriverFactory(environmentName, browserName);
         homePage = PageGeneratorManager.getHomePage(driver);
         registerPage = PageGeneratorManager.getRegisterPage(driver);
@@ -33,10 +34,11 @@ public class RegisterPage extends BaseTest {
     @Test
     public void TC_01_Register_New_Account_Successfully (Method method){
         ExtentTestManager.startTest(method.getName(), "Verify register account successfully");
-        ExtentTestManager.getTest().log(Status.INFO, "Register - Step 01: Click register hyperlink");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click register hyperlink");
         registerPage = homePage.clickRegisterLink();
+        registerPage.isRegisterPageDisplayed();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Register - Step 02: Input information to register form");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Input information to register form");
         registerPage.inputToTextboxByTextboxName(driver, "First Name",GlobalConstants.firstName);
         registerPage.inputToTextboxByTextboxName(driver, "Last Name", GlobalConstants.lastName);
         registerPage.inputToTextboxByTextboxName(driver, "Address", GlobalConstants.Address);
@@ -48,5 +50,35 @@ public class RegisterPage extends BaseTest {
         registerPage.inputToTextboxByTextboxName(driver, "Username", GlobalConstants.Username);
         registerPage.inputToTextboxByTextboxName(driver, "Password", GlobalConstants.Password);
         registerPage.inputToTextboxByTextboxName(driver, "Confirm", GlobalConstants.confirmPassword);
+
+        ExtentTestManager.getTest().log(Status.INFO, "Register - Step 03: Click Register button");
+        registerPage.clickRegisterButton();
+
+        ExtentTestManager.getTest().log(Status.INFO, "Register - Step 04: Verify account registration successfully");
+        registerPage.isAccountRegisterSuccessfully();
+    }
+
+    @Test
+    public void TC_02_Verify_Required_Field_Message (Method method) {
+        ExtentTestManager.startTest(method.getName(), "Verify register account successfully");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click register hyperlink");
+        homePage.openHomePage();
+        registerPage = homePage.clickRegisterLink();
+        registerPage.isRegisterPageDisplayed();
+
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Click register hyperlink when there's no data in textboxes");
+        registerPage.clickRegisterButton();
+
+        ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify required message");
+        registerPage.isRequiredMessageDisplayedByText(driver, "First name");
+        registerPage.isRequiredMessageDisplayedByText(driver, "Last name");
+        registerPage.isRequiredMessageDisplayedByText(driver, "Address");
+        registerPage.isRequiredMessageDisplayedByText(driver, "City");
+        registerPage.isRequiredMessageDisplayedByText(driver, "State");
+        registerPage.isRequiredMessageDisplayedByText(driver, "Zip Code");
+        registerPage.isRequiredMessageDisplayedByText(driver, "Social Security Number");
+        registerPage.isRequiredMessageDisplayedByText(driver, "Username");
+        registerPage.isRequiredMessageDisplayedByText(driver, "Password");
+        registerPage.isRequiredMessageDisplayedByText(driver, "Password confirmation");
     }
 }

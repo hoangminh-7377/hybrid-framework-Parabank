@@ -21,4 +21,30 @@ public class RegisterPageObject extends BasePage {
         waitForElementVisible(driver, RegisterPageUI.TEXTBOX_DYNAMIC, textboxName);
         sendkeyToElement(driver, RegisterPageUI.TEXTBOX_DYNAMIC, inputValue, textboxName);
     }
+
+    public void clickRegisterButton() {
+        waitForElementClickable(driver, RegisterPageUI.REGISTER_BUTTON);
+        clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
+    }
+
+    public boolean isAccountRegisterSuccessfully() {
+        waitForElementVisible(driver, RegisterPageUI.WELCOME_HEADER);
+        waitForElementVisible(driver, RegisterPageUI.ACCOUNT_CREATED_MESSAGE);
+        boolean headerDisplayed = isElementDisplayed(driver, RegisterPageUI.WELCOME_HEADER);
+        boolean messageDisplayed = isElementDisplayed(driver, RegisterPageUI.ACCOUNT_CREATED_MESSAGE);
+        if (headerDisplayed == true && messageDisplayed == true){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isRequiredMessageDisplayedByText(WebDriver driver, String textboxName) {
+        waitForElementVisible(driver, RegisterPageUI.DYNAMIC_REQUIRED_FIELD_MESSAGE, textboxName);
+        return isElementDisplayed(driver, RegisterPageUI.DYNAMIC_REQUIRED_FIELD_MESSAGE, textboxName);
+    }
+
+    public boolean isRegisterPageDisplayed() {
+        waitForElementVisible(driver, RegisterPageUI.REGISTER_PAGE_TITLE);
+        return isElementDisplayed(driver, RegisterPageUI.REGISTER_PAGE_TITLE);
+    }
 }

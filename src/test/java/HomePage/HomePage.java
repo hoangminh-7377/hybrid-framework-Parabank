@@ -29,7 +29,7 @@ public class HomePage extends BaseTest {
     @Test
     public void TC_01_Verify_Menu_Items (Method method) {
         ExtentTestManager.startTest(method.getName(), "Verify menu items navigate successfully");
-        ExtentTestManager.getTest().log(Status.INFO, "Register - Step 01: Click all menu items");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click all menu items");
         homePageObject.clickMenuByText(driver, "About Us");
         homePageObject.backToPage(driver);
 
