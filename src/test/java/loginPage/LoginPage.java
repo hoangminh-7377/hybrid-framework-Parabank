@@ -12,13 +12,13 @@ import java.lang.reflect.Method;
 
 public class LoginPage extends BaseTest {
     private WebDriver driver;
-    LoginPageObject loginPageObject;
+    LoginPageObject loginPage;
 
     @Parameters({"environmentName", "browser"})
     @BeforeClass
     public void beforeClass(@Optional("local") String environmentName, @Optional("firefox") String browserName) {
         driver = getBrowserDriverFactory(environmentName, browserName);
-        loginPageObject = PageGeneratorManager.getLoginPage(driver);
+        loginPage = PageGeneratorManager.getLoginPage(driver);
     }
 
     @AfterClass(alwaysRun = true)
@@ -30,19 +30,19 @@ public class LoginPage extends BaseTest {
     public void TC_01_Verify_Menu_Items (Method method) {
         ExtentTestManager.startTest(method.getName(), "Verify menu items navigate successfully");
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click all menu items");
-        loginPageObject.clickMenuByText(driver, "About Us");
-        loginPageObject.backToPage(driver);
+        loginPage.clickMenuByText(driver, "About Us");
+        loginPage.backToPage(driver);
 
-        loginPageObject.clickMenuByText(driver, "Services");
-        loginPageObject.backToPage(driver);
+        loginPage.clickMenuByText(driver, "Services");
+        loginPage.backToPage(driver);
 
-        loginPageObject.clickMenuByText(driver, "Products");
-        loginPageObject.backToPage(driver);
+        loginPage.clickMenuByText(driver, "Products");
+        loginPage.backToPage(driver);
 
-        loginPageObject.clickMenuByText(driver, "Locations");
-        loginPageObject.backToPage(driver);
+        loginPage.clickMenuByText(driver, "Locations");
+        loginPage.backToPage(driver);
 
-        loginPageObject.clickMenuByText(driver, "Admin Page");
-        loginPageObject.backToPage(driver);
+        loginPage.clickMenuByText(driver, "Admin Page");
+        loginPage.backToPage(driver);
     }
 }

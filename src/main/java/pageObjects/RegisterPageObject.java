@@ -12,11 +12,6 @@ public class RegisterPageObject extends BasePage {
         this.driver = driver;
     }
 
-    public void clickMenuByText(WebDriver driver, String textValue){
-        waitForElementClickable(driver, HomePageUI.MENU_ITEM_DYNAMIC, textValue);
-        clickToElement(driver, HomePageUI.MENU_ITEM_DYNAMIC, textValue);
-    }
-
     public void inputToTextboxByTextboxName(WebDriver driver, String textboxName, String inputValue) {
         waitForElementVisible(driver, RegisterPageUI.TEXTBOX_DYNAMIC, textboxName);
         sendkeyToElement(driver, RegisterPageUI.TEXTBOX_DYNAMIC, inputValue, textboxName);

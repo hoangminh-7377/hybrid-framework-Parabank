@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="SauceLab">
+<suite name="ParaBank">
     <listeners>
         <listener class-name = "extentReportV5.ExtentTestListener"></listener>
         <listener class-name="org.uncommons.reportng.HTMLReporter"></listener>
@@ -12,8 +12,9 @@
 
     <test name="run on Firefox">
         <classes>
-            <class name="loginPage.LoginPage"></class>
+            <!--<class name="loginPage.LoginPage"></class>-->
             <!--<class name="registerPage.RegisterPage"></class>-->
+            <class name="homePage.HomePage"></class>
         </classes>
     </test>
 </suite>
