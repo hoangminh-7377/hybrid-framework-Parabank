@@ -1,4 +1,4 @@
-package ExtentReportV5;
+package extentReportV5;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;

@@ -1,6 +1,6 @@
 package commons;
 
-import BrowserFactory.LocalFactory;
+import browserFactory.LocalFactory;
 import org.openqa.selenium.WebDriver;
 
 import java.io.IOException;

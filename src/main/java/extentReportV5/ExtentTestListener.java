@@ -1,4 +1,4 @@
-package ExtentReportV5;
+package extentReportV5;
 
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
@@ -11,7 +11,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import static ExtentReportV5.ExtentTestManager.getTest;
+import static extentReportV5.ExtentTestManager.getTest;
 
 public class ExtentTestListener extends BaseTest implements ITestListener {
 

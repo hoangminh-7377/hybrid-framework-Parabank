@@ -1,6 +1,6 @@
-package HomePage;
+package homePage;
 
-import ExtentReportV5.ExtentTestManager;
+import extentReportV5.ExtentTestManager;
 import com.aventstack.extentreports.Status;
 import commons.BaseTest;
 import commons.PageGeneratorManager;

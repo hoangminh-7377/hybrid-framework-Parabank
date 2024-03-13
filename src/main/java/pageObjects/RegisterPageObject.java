@@ -47,4 +47,14 @@ public class RegisterPageObject extends BasePage {
         waitForElementVisible(driver, RegisterPageUI.REGISTER_PAGE_TITLE);
         return isElementDisplayed(driver, RegisterPageUI.REGISTER_PAGE_TITLE);
     }
+
+    public void clickLogoutLink() {
+        waitForElementClickable(driver, RegisterPageUI.LOGOUT_HYPERLINK);
+        clickToElement(driver, RegisterPageUI.LOGOUT_HYPERLINK);
+    }
+
+    public boolean isUsernameDuplicated() {
+        waitForElementVisible(driver, RegisterPageUI.DUPLICATED_USER_MESSAGE);
+        return isElementDisplayed(driver, RegisterPageUI.DUPLICATED_USER_MESSAGE);
+    }
 }

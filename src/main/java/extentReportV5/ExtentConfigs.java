@@ -1,4 +1,4 @@
-package ExtentReportV5;
+package extentReportV5;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -11,7 +11,7 @@ public class ExtentConfigs {
     public static final ExtentReports extentReports = new ExtentReports();
 
     public synchronized static ExtentReports createExtentReports() {
-        ExtentSparkReporter reporter = new ExtentSparkReporter(GlobalConstants.PROJECT_PATH + File.separator +"ExtentReportV5" + File.separator + "ExtentReport.html");
+        ExtentSparkReporter reporter = new ExtentSparkReporter(GlobalConstants.PROJECT_PATH + File.separator + "extentReportV5" + File.separator + "ExtentReport.html");
         extentReports.attachReporter(reporter);
         reporter.config().setReportName("SauceLab Report");
         reporter.config().setDocumentTitle("SauceLab Report");

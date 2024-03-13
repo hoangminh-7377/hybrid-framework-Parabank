@@ -8,6 +8,6 @@
   <properties />
   
   
-            <testcase name="TC_01_Register_Successfully" time="11.122" classname="HomePage.HomePage" />
+            <testcase name="TC_01_Register_Successfully" time="11.122" classname="homePage.HomePage" />
       
 </testsuite>
