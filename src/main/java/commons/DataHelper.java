@@ -63,7 +63,6 @@ public class DataHelper {
                 "https://www.youtube.com/"
         };
         String randomlySelectedUrl = getRandomUrl(urlList);
-        //String SSN = randomlySelectedUrl + getLastName() + "." + getFirstName();
         return randomlySelectedUrl;
     }
 
@@ -82,7 +81,7 @@ public class DataHelper {
     }
 
     public String getUserName() {
-        return getFirstName()+getRandomNumber();
+        return getFirstName()+getFirstName()+ "_" + getRandomNumber();
     }
 
     public int getRandomNumber() {

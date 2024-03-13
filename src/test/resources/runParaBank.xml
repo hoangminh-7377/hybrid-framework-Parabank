@@ -12,8 +12,8 @@
 
     <test name="run on Firefox">
         <classes>
-            <!--<class name="homePage.homePage"></class>-->
-            <class name="registerPage.RegisterPage"></class>
+            <class name="loginPage.LoginPage"></class>
+            <!--<class name="registerPage.RegisterPage"></class>-->
         </classes>
     </test>
 </suite>

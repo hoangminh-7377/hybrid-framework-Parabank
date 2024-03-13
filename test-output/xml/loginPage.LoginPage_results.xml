@@ -4,10 +4,10 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="11.122">
+           time="11.414">
   <properties />
   
   
-            <testcase name="TC_01_Register_Successfully" time="11.122" classname="loginPage.HomePage" />
+            <testcase name="TC_01_Verify_Menu_Items" time="11.414" classname="loginPage.LoginPage" />
       
 </testsuite>

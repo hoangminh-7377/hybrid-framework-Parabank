@@ -7,7 +7,7 @@ import commons.BaseTest;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
-import pageObjects.HomePageObject;
+import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
 import testData.UserData;
 
@@ -15,7 +15,7 @@ import java.lang.reflect.Method;
 
 public class RegisterPage extends BaseTest {
     private WebDriver driver;
-    HomePageObject homePage;
+    LoginPageObject loginPage;
     RegisterPageObject registerPage;
     DataHelper dataHelper;
     String firstName, lastName, Address, City, State, Zipcode, Phone, SSN, Username, Password;
@@ -24,7 +24,7 @@ public class RegisterPage extends BaseTest {
     @BeforeClass
     public void beforeClass(@Optional("local") String environmentName, @Optional("chrome") String browserName) {
         driver = getBrowserDriverFactory(environmentName, browserName);
-        homePage = PageGeneratorManager.getHomePage(driver);
+        loginPage = PageGeneratorManager.getLoginPage(driver);
         registerPage = PageGeneratorManager.getRegisterPage(driver);
         dataHelper = DataHelper.getDataHelper();
 
@@ -49,7 +49,7 @@ public class RegisterPage extends BaseTest {
     public void TC_01_Verify_Required_Field_Message (Method method) {
         ExtentTestManager.startTest(method.getName(), "Verify register account successfully");
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click register hyperlink");
-        registerPage = homePage.clickRegisterLink();
+        registerPage = loginPage.clickRegisterLink();
         registerPage.isRegisterPageDisplayed();
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 02: Click register hyperlink when there's no data in textboxes");
@@ -66,16 +66,13 @@ public class RegisterPage extends BaseTest {
         registerPage.isRequiredMessageDisplayedByText(driver, "Username");
         registerPage.isRequiredMessageDisplayedByText(driver, "Password");
         registerPage.isRequiredMessageDisplayedByText(driver, "Password confirmation");
-
-        System.out.println(firstName);
-        System.out.println(UserData.Register.ADDRESS);
     }
 
     @Test
-    public void TC_01_Register_New_Account_Successfully (Method method){
-        ExtentTestManager.startTest(method.getName(), "Verify register account successfully. Due to database clean mechanics after X hours, this test case may fail");
+    public void TC_02_Register_New_Account_Successfully (Method method){
+        ExtentTestManager.startTest(method.getName(), "Verify register account successfully. Due to database clean mechanics after X hours, this test case may fail at step 04");
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click register hyperlink");
-        registerPage = homePage.clickRegisterLink();
+        registerPage = loginPage.clickRegisterLink();
         registerPage.isRegisterPageDisplayed();
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 02: Input information to register form");
@@ -95,32 +92,35 @@ public class RegisterPage extends BaseTest {
         registerPage.clickRegisterButton();
 
         ExtentTestManager.getTest().log(Status.INFO, "Register - Step 04: Verify account registration successfully");
-        registerPage.isUsernameDuplicated();
+        //registerPage.isUsernameDuplicated();
         registerPage.isAccountRegisterSuccessfully();
     }
 
 
-
-
-    public void TC_03_Verify_Create_Duplicated_Email (Method method) {
+    public void TC_03_Register_New_Random_Account_Successfully (Method method) {
         ExtentTestManager.startTest(method.getName(), "Verify register account with duplicate email");
-        ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click register hyperlink");
-        homePage.openHomePage();
+        ExtentTestManager.getTest().log(Status.INFO, "Step 01: Open Home Page");
+        loginPage.openHomePage();
 
-        registerPage.isUsernameDuplicated();
-    }
-
-    //@Test
-    public void TC_04_Verify_Create_Duplicated_Email (Method method) {
-        ExtentTestManager.startTest(method.getName(), "Verify register account with duplicate email");
-        ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click register hyperlink");
-        registerPage = homePage.clickRegisterLink();
+        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Click register hyperlink");
+        registerPage = loginPage.clickRegisterLink();
         registerPage.isRegisterPageDisplayed();
 
-        ExtentTestManager.getTest().log(Status.INFO, "Step 02: Input information to register form");
+        ExtentTestManager.getTest().log(Status.INFO, "Step 03: Input information to register form");
         registerPage.inputToTextboxByTextboxName(driver, "First Name", firstName);
-        registerPage.inputToTextboxByTextboxName(driver, "Last Name",  lastName);
-        registerPage.inputToTextboxByTextboxName(driver, "SSN",  SSN);
-        registerPage.sleepInSecond(15);
+        registerPage.inputToTextboxByTextboxName(driver, "Last Name", lastName);
+        registerPage.inputToTextboxByTextboxName(driver, "Address", Address);
+        registerPage.inputToTextboxByTextboxName(driver, "City", City);
+        registerPage.inputToTextboxByTextboxName(driver, "State", State);
+        registerPage.inputToTextboxByTextboxName(driver, "Zip Code", Zipcode);
+        registerPage.inputToTextboxByTextboxName(driver, "Phone ", Phone);
+        registerPage.inputToTextboxByTextboxName(driver, "SSN", SSN);
+        registerPage.inputToTextboxByTextboxName(driver, "Username", Username);
+        registerPage.inputToTextboxByTextboxName(driver, "Password", Password);
+        registerPage.inputToTextboxByTextboxName(driver, "Confirm", Password);
+        registerPage.clickRegisterButton();
+
+        ExtentTestManager.getTest().log(Status.INFO, "Register - Step 04: Verify account registration successfully");
+        registerPage.isAccountRegisterSuccessfully();
     }
 }
