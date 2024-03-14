@@ -16,7 +16,7 @@ public class UserData {
         public static final String ZIPCODE = "10000";
         public static final String PHONE = "0987654321";
         public static final String SSN = "facebook.com";
-        public static final String USERNAME = "user02";
+        public static final String USERNAME = "username03";
         public static final String PASSWORD = "12345678";
     }
 

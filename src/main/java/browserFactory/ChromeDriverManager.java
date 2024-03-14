@@ -16,7 +16,7 @@ public class ChromeDriverManager implements BrowserFactory {
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
 
-        chromeOptions.addArguments("start-maximized");
+        //chromeOptions.addArguments("start-maximized");
         chromeOptions.setExperimentalOption("useAutomationExtension", false);
         chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
 

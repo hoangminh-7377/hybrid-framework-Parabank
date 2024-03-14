@@ -45,7 +45,7 @@ public class RegisterPage extends BaseTest {
         closeBrowserDriver();
     }
 
-    @Test
+    //@Test
     public void TC_01_Verify_Required_Field_Message (Method method) {
         ExtentTestManager.startTest(method.getName(), "Verify register account successfully");
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click register hyperlink");

@@ -1,4 +1,4 @@
-package homePage;
+package userPage;
 
 import com.aventstack.extentreports.Status;
 import commons.BaseTest;

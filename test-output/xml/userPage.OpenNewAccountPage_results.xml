@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="run on Chrome"
+           tests="2"
+           failures="0"
+           errors="0"
+           skipped="0"
+           time="4.613">
+  <properties />
+  
+  
+            <testcase name="TC_01_Open_Saving_Account" time="1.894" classname="userPage.OpenNewAccountPage" />
+                <testcase name="TC_01_Open_Checking_Account" time="2.719" classname="userPage.OpenNewAccountPage" />
+      
+</testsuite>
