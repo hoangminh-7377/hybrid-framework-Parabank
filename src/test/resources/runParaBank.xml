@@ -15,7 +15,8 @@
             <!--<class name="loginPage.LoginPage"></class>-->
             <!--<class name="registerPage.RegisterPage"></class>-->
             <!--<class name="userPage.HomePage"></class>-->
-            <class name="userPage.OpenNewAccountPage"></class>
+            <!--<class name="userPage.OpenNewAccountPage"></class>-->
+            <class name="userPage.AccountOverviewPage"></class>
         </classes>
     </test>
 </suite>

@@ -24,4 +24,7 @@ public class PageGeneratorManager {
     public static OpenNewAccountPageObject getOpenNewAccountPage (WebDriver driver){
         return new OpenNewAccountPageObject(driver);
     }
+    public static AccountOverviewPageObject getAccountOverviewPage (WebDriver driver){
+        return new AccountOverviewPageObject(driver);
+    }
 }

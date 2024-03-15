@@ -24,6 +24,7 @@ public class HomePage extends BaseTest {
     public void beforeClass(@Optional("local") String environmentName, @Optional("firefox") String browserName) {
         driver = getBrowserDriverFactory(environmentName, browserName);
         loginPage = PageGeneratorManager.getLoginPage(driver);
+        homePage = PageGeneratorManager.getHomePage(driver);
 
         loginPage.inputUserName(UserData.Register.USERNAME);
         loginPage.inputPassword(UserData.Register.PASSWORD);

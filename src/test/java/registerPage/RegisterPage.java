@@ -6,6 +6,7 @@ import com.aventstack.extentreports.Status;
 import commons.BaseTest;
 import commons.PageGeneratorManager;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.*;
 import pageObjects.LoginPageObject;
 import pageObjects.RegisterPageObject;
@@ -45,12 +46,12 @@ public class RegisterPage extends BaseTest {
         closeBrowserDriver();
     }
 
-    //@Test
+    @Test
     public void TC_01_Verify_Required_Field_Message (Method method) {
         ExtentTestManager.startTest(method.getName(), "Verify register account successfully");
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click register hyperlink");
         registerPage = loginPage.clickRegisterLink();
-        registerPage.isRegisterPageDisplayed();
+        Assert.assertTrue(registerPage.isRegisterPageDisplayed());
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 02: Click register hyperlink when there's no data in textboxes");
         registerPage.clickRegisterButton();
@@ -73,7 +74,7 @@ public class RegisterPage extends BaseTest {
         ExtentTestManager.startTest(method.getName(), "Verify register account successfully. Due to database clean mechanics after X hours, this test case may fail at step 04");
         ExtentTestManager.getTest().log(Status.INFO, "Step 01: Click register hyperlink");
         registerPage = loginPage.clickRegisterLink();
-        registerPage.isRegisterPageDisplayed();
+        Assert.assertTrue(registerPage.isRegisterPageDisplayed());
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 02: Input information to register form");
         registerPage.inputToTextboxByTextboxName(driver, "First Name", UserData.Register.FIRSTNAME);
@@ -93,7 +94,7 @@ public class RegisterPage extends BaseTest {
 
         ExtentTestManager.getTest().log(Status.INFO, "Register - Step 04: Verify account registration successfully");
         //registerPage.isUsernameDuplicated();
-        registerPage.isAccountRegisterSuccessfully();
+        Assert.assertTrue(registerPage.isAccountRegisterSuccessfully());
     }
 
 
@@ -104,7 +105,7 @@ public class RegisterPage extends BaseTest {
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 02: Click register hyperlink");
         registerPage = loginPage.clickRegisterLink();
-        registerPage.isRegisterPageDisplayed();
+        Assert.assertTrue(registerPage.isRegisterPageDisplayed());
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Input information to register form");
         registerPage.inputToTextboxByTextboxName(driver, "First Name", firstName);
@@ -121,6 +122,6 @@ public class RegisterPage extends BaseTest {
         registerPage.clickRegisterButton();
 
         ExtentTestManager.getTest().log(Status.INFO, "Register - Step 04: Verify account registration successfully");
-        registerPage.isAccountRegisterSuccessfully();
+        Assert.assertTrue(registerPage.isAccountRegisterSuccessfully());
     }
 }

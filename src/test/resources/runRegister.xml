@@ -12,7 +12,6 @@
 
     <test name="run on Chrome">
         <classes>
-            <!--<class name="loginPage.LoginPage"></class>-->
             <class name="registerPage.RegisterPage"></class>
         </classes>
     </test>
