@@ -55,18 +55,18 @@ public class RegisterPage extends BaseTest {
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 02: Click register hyperlink when there's no data in textboxes");
         registerPage.clickRegisterButton();
-        //aaaa
+
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify required message");
-        registerPage.isRequiredMessageDisplayedByText(driver, "First name");
-        registerPage.isRequiredMessageDisplayedByText(driver, "Last name");
-        registerPage.isRequiredMessageDisplayedByText(driver, "Address");
-        registerPage.isRequiredMessageDisplayedByText(driver, "City");
-        registerPage.isRequiredMessageDisplayedByText(driver, "State");
-        registerPage.isRequiredMessageDisplayedByText(driver, "Zip Code");
-        registerPage.isRequiredMessageDisplayedByText(driver, "Social Security Number");
-        registerPage.isRequiredMessageDisplayedByText(driver, "Username");
-        registerPage.isRequiredMessageDisplayedByText(driver, "Password");
-        registerPage.isRequiredMessageDisplayedByText(driver, "Password confirmation");
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "First name"));
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "Last name"));
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "Address"));
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "City"));
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "State"));
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "Zip Code"));
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "Social Security Number"));
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "Username"));
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "Password"));
+        Assert.assertTrue(registerPage.isRequiredMessageDisplayedByText(driver, "Password confirmation"));
     }
 
     @Test

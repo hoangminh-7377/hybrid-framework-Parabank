@@ -4,11 +4,11 @@
            failures="0"
            errors="0"
            skipped="0"
-           time="5.104">
+           time="7.045">
   <properties />
   
   
-            <testcase name="TC_02_Register_New_Account_Successfully" time="2.781" classname="registerPage.RegisterPage" />
-                <testcase name="TC_01_Verify_Required_Field_Message" time="2.323" classname="registerPage.RegisterPage" />
+            <testcase name="TC_01_Verify_Required_Field_Message" time="3.485" classname="registerPage.RegisterPage" />
+                <testcase name="TC_02_Register_New_Account_Successfully" time="3.560" classname="registerPage.RegisterPage" />
       
 </testsuite>
