@@ -55,7 +55,7 @@ public class RegisterPage extends BaseTest {
 
         ExtentTestManager.getTest().log(Status.INFO, "Step 02: Click register hyperlink when there's no data in textboxes");
         registerPage.clickRegisterButton();
-
+        //aaaa
         ExtentTestManager.getTest().log(Status.INFO, "Step 03: Verify required message");
         registerPage.isRequiredMessageDisplayedByText(driver, "First name");
         registerPage.isRequiredMessageDisplayedByText(driver, "Last name");
